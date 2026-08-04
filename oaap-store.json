@@ -1,0 +1,16 @@
+{
+  "store": "0.1",
+  "name": "OAAP Community-Liste (inoffiziell)",
+  "apps": [
+    {
+      "id": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "description": "Überwachung von Diensten und Webseiten",
+      "type": "wrapped",
+      "version": "1.23.0",
+      "package": { "git": "https://github.com/<du>/<repo>", "path": "apps/uptime-kuma" },
+      "license": "MIT",
+      "homepage": "https://github.com/louislam/uptime-kuma"
+    }
+  ]
+}

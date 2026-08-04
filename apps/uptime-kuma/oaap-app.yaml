@@ -1,0 +1,25 @@
+oaap_manifest: "0.1"
+
+app:
+  id: uptime-kuma
+  name: Uptime Kuma
+  version: 1.23.0
+  type: wrapped
+  description: "Überwachung von Diensten und Webseiten mit Benachrichtigungen"
+
+services:
+  web:
+    image: louislam/uptime-kuma:1
+    port: 3001
+
+routes:
+  - path: /
+    roles: [keyuser, admin]
+
+storage:
+  - name: data
+    mount: /app/data
+
+health:
+  path: /
+  startup_grace_seconds: 120

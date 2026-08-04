@@ -1,0 +1,25 @@
+oaap_manifest: "0.1"
+
+app:
+  id: vaultwarden
+  name: Vaultwarden
+  version: 1.32.0
+  type: wrapped
+  description: "Passwort-Manager für den Betrieb (Bitwarden-kompatibel)"
+
+services:
+  web:
+    image: vaultwarden/server:latest
+    port: 80
+
+routes:
+  - path: /
+    roles: [user, keyuser, admin]
+
+storage:
+  - name: data
+    mount: /data
+
+health:
+  path: /alive
+  startup_grace_seconds: 120

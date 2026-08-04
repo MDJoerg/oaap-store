@@ -1,16 +1,37 @@
 {
   "store": "0.1",
   "name": "OAAP Community-Liste (inoffiziell)",
+  "description": "Erste kuratierte App-Liste für den OAAP-Store-Durchstich. Inhalte ohne Gewähr, Pinning der Image-Versionen folgt.",
   "apps": [
     {
       "id": "uptime-kuma",
       "name": "Uptime Kuma",
-      "description": "Überwachung von Diensten und Webseiten",
+      "description": "Überwachung von Diensten und Webseiten mit Benachrichtigungen",
       "type": "wrapped",
       "version": "1.23.0",
-      "package": { "git": "https://github.com/<du>/<repo>", "path": "apps/uptime-kuma" },
+      "package": { "git": "https://github.com/MDJoerg/oaap-store", "path": "apps/uptime-kuma" },
       "license": "MIT",
       "homepage": "https://github.com/louislam/uptime-kuma"
+    },
+    {
+      "id": "stirling-pdf",
+      "name": "Stirling PDF",
+      "description": "PDF-Werkzeuge im Browser: zusammenfügen, teilen, umwandeln, komprimieren",
+      "type": "wrapped",
+      "version": "0.36.0",
+      "package": { "git": "https://github.com/MDJoerg/oaap-store", "path": "apps/stirling-pdf" },
+      "license": "MIT",
+      "homepage": "https://www.stirlingpdf.com"
+    },
+    {
+      "id": "vaultwarden",
+      "name": "Vaultwarden",
+      "description": "Passwort-Manager für den Betrieb (Bitwarden-kompatibel)",
+      "type": "wrapped",
+      "version": "1.32.0",
+      "package": { "git": "https://github.com/MDJoerg/oaap-store", "path": "apps/vaultwarden" },
+      "license": "AGPL-3.0",
+      "homepage": "https://github.com/dani-garcia/vaultwarden"
     }
   ]
 }

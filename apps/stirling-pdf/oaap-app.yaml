@@ -3,7 +3,7 @@ oaap_manifest: "0.1"
 app:
   id: stirling-pdf
   name: Stirling PDF
-  version: 0.36.0
+  version: 0.36.1
   type: wrapped
   description: "PDF-Werkzeuge im Browser: zusammenfügen, teilen, umwandeln, komprimieren"
 
@@ -11,6 +11,13 @@ services:
   web:
     image: stirlingtools/stirling-pdf:latest
     port: 8080
+
+config:
+  # Kein Doppel-Login: das OAAP-Gateway authentifiziert bereits jede
+  # Anfrage — Stirlings eigener Login bleibt deshalb aus.
+  - key: SECURITY_ENABLELOGIN
+    label: "Eigener Stirling-Login (true/false)"
+    default: "false"
 
 routes:
   - path: /

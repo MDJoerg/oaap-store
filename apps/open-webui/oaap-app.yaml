@@ -1,0 +1,37 @@
+oaap_manifest: "0.1"
+
+app:
+  id: open-webui
+  name: Open WebUI
+  version: 0.6.0
+  type: wrapped
+  description: "Chat-Oberfläche für lokale KI-Modelle (Ollama) und API-Anbieter"
+
+services:
+  web:
+    image: ghcr.io/open-webui/open-webui:main
+    port: 8080
+
+routes:
+  - path: /
+    roles: [user, keyuser, admin]
+
+storage:
+  - name: data
+    mount: /app/backend/data
+
+config:
+  # Standard: die Ollama-App auf derselben Plattform (Container-Name
+  # im internen Netz). Anpassen, wenn Ollama woanders läuft.
+  - key: OLLAMA_BASE_URL
+    label: "Ollama-Adresse"
+    default: "http://oaap-app-ollama:11434"
+  # Kein Doppel-Login: das OAAP-Gateway authentifiziert bereits.
+  # true = Open WebUI verwaltet zusätzlich eigene Konten.
+  - key: WEBUI_AUTH
+    label: "Eigener Open-WebUI-Login (true/false)"
+    default: "false"
+
+health:
+  path: /health
+  startup_grace_seconds: 300

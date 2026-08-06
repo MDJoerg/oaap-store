@@ -1,0 +1,26 @@
+oaap_manifest: "0.1"
+
+app:
+  id: ollama
+  name: Ollama
+  version: 0.9.0
+  type: wrapped
+  description: "Lokale KI-Modelle als API (llama, mistral, qwen, …); braucht je nach Modell mehrere GB RAM"
+
+services:
+  web:
+    image: ollama/ollama:latest
+    port: 11434
+
+routes:
+  - path: /
+    roles: [keyuser, admin]
+
+storage:
+  # heruntergeladene Modelle — kann groß werden
+  - name: models
+    mount: /root/.ollama
+
+health:
+  path: /
+  startup_grace_seconds: 120

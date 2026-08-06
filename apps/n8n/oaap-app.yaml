@@ -1,0 +1,35 @@
+oaap_manifest: "0.1"
+
+app:
+  id: n8n
+  name: n8n
+  version: 1.100.0
+  type: wrapped
+  description: "Workflow-Automatisierung: Dienste verbinden, Abläufe bauen — ohne Code"
+
+services:
+  web:
+    image: docker.n8n.io/n8nio/n8n:latest
+    port: 5678
+
+routes:
+  - path: /
+    roles: [keyuser, admin]
+
+storage:
+  - name: data
+    mount: /home/node/.n8n
+
+config:
+  # Hinter dem OAAP-Gateway läuft n8n intern über HTTP — ohne diese
+  # Einstellung verweigert n8n den Login-Cookie.
+  - key: N8N_SECURE_COOKIE
+    label: "Sichere Cookies erzwingen (true/false)"
+    default: "false"
+  - key: GENERIC_TIMEZONE
+    label: "Zeitzone"
+    default: "Europe/Berlin"
+
+health:
+  path: /healthz
+  startup_grace_seconds: 180

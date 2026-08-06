@@ -9,7 +9,10 @@
       "description": "Überwachung von Diensten und Webseiten mit Benachrichtigungen",
       "type": "wrapped",
       "version": "1.23.0",
-      "package": { "git": "https://github.com/MDJoerg/oaap-store", "path": "apps/uptime-kuma" },
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/uptime-kuma"
+      },
       "license": "MIT",
       "homepage": "https://github.com/louislam/uptime-kuma"
     },
@@ -18,8 +21,11 @@
       "name": "Stirling PDF",
       "description": "PDF-Werkzeuge im Browser: zusammenfügen, teilen, umwandeln, komprimieren",
       "type": "wrapped",
-      "version": "0.36.0",
-      "package": { "git": "https://github.com/MDJoerg/oaap-store", "path": "apps/stirling-pdf" },
+      "version": "0.36.1",
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/stirling-pdf"
+      },
       "license": "MIT",
       "homepage": "https://www.stirlingpdf.com"
     },
@@ -29,9 +35,51 @@
       "description": "Passwort-Manager für den Betrieb (Bitwarden-kompatibel)",
       "type": "wrapped",
       "version": "1.32.0",
-      "package": { "git": "https://github.com/MDJoerg/oaap-store", "path": "apps/vaultwarden" },
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/vaultwarden"
+      },
       "license": "AGPL-3.0",
       "homepage": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "description": "Workflow-Automatisierung: Dienste verbinden, Abläufe bauen — ohne Code",
+      "type": "wrapped",
+      "version": "1.100.0",
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/n8n"
+      },
+      "license": "Sustainable Use License",
+      "homepage": "https://n8n.io"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "description": "Lokale KI-Modelle als API (llama, mistral, qwen, …); braucht je nach Modell mehrere GB RAM",
+      "type": "wrapped",
+      "version": "0.9.0",
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/ollama"
+      },
+      "license": "MIT",
+      "homepage": "https://ollama.com"
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "description": "Chat-Oberfläche für lokale KI-Modelle (Ollama) und API-Anbieter",
+      "type": "wrapped",
+      "version": "0.6.0",
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/open-webui"
+      },
+      "license": "BSD-3-Clause",
+      "homepage": "https://openwebui.com"
     }
   ]
 }

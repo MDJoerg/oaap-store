@@ -1,0 +1,60 @@
+oaap_manifest: "0.1"
+
+app:
+  id: forgejo
+  name: Forgejo
+  version: 11.0.0
+  type: wrapped
+  description: "Git-Hosting auf der eigenen Plattform: Repositories, Issues, Pull Requests (Community-Fork von Gitea)"
+
+services:
+  web:
+    # 11 = LTS-Linie; Patch-Updates kommen mit dem Tag mit
+    image: codeberg.org/forgejo/forgejo:11
+    port: 3000
+
+routes:
+  # Begründete public-Ausnahme (RFC-0002): git clone/push über HTTPS
+  # kann den Portal-Login nicht durchlaufen — Forgejo authentifiziert
+  # jede Anfrage selbst (eigene Konten + Tokens, Registrierung ist
+  # unten per Default gesperrt). Das Gateway strippt die
+  # Identitäts-Header auch hier (Contract-Garantie 1).
+  - path: /
+    roles: [public]
+
+storage:
+  # Repositories, SQLite-Datenbank und Forgejo-Konfiguration (app.ini)
+  - name: data
+    mount: /data
+
+config:
+  # Öffentliche Adresse für angezeigte Clone-URLs, mit / am Ende —
+  # extern z. B. https://forgejo.oaap-demo.duckdns.org/, im LAN
+  # http://<server-ip>:<gateway-port>/. Leer = Forgejo rät (zeigt dann
+  # localhost-URLs an). Änderung greift nach Neustart der App.
+  - key: FORGEJO__server__ROOT_URL
+    label: "Öffentliche Adresse (Clone-URLs)"
+    default: ""
+  # Setup-Assistent überspringen: SQLite und sinnvolle Defaults sind
+  # damit gesetzt; den Admin legt ein CLI-Einzeiler an (siehe README).
+  - key: FORGEJO__security__INSTALL_LOCK
+    label: "Setup-Assistent überspringen (true/false)"
+    default: "true"
+  # Das OAAP-Gateway routet nur HTTP — Git läuft über HTTPS,
+  # SSH-Zugang bleibt aus (Spec-Lücke Nicht-HTTP-Ports).
+  - key: FORGEJO__server__DISABLE_SSH
+    label: "SSH-Zugang deaktivieren (true/false)"
+    default: "true"
+  # Sicher per Default auf der public-Route: keine Selbstregistrierung;
+  # Benutzer legt der Forgejo-Admin an.
+  - key: FORGEJO__service__DISABLE_REGISTRATION
+    label: "Selbstregistrierung sperren (true/false)"
+    default: "true"
+  # Auch Lesen nur mit Anmeldung (anonym sieht nichts).
+  - key: FORGEJO__service__REQUIRE_SIGNIN_VIEW
+    label: "Anmeldung auch zum Lesen (true/false)"
+    default: "true"
+
+health:
+  path: /api/healthz
+  startup_grace_seconds: 180

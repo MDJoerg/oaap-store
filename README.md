@@ -30,11 +30,34 @@ Store-Quelle eintragen und die Apps direkt installieren.
 
 ## Enthaltene Apps
 
-| App          | Was es ist                              | Lizenz   |
-| ------------ | --------------------------------------- | -------- |
-| Uptime Kuma  | Überwachung von Diensten und Webseiten  | MIT      |
-| Stirling PDF | PDF-Werkzeuge im Browser                | MIT      |
-| Vaultwarden  | Passwort-Manager (Bitwarden-kompatibel) | AGPL-3.0 |
+| App          | Was es ist                                        | Lizenz             |
+| ------------ | ------------------------------------------------- | ------------------ |
+| Uptime Kuma  | Überwachung von Diensten und Webseiten            | MIT                |
+| Stirling PDF | PDF-Werkzeuge im Browser                          | MIT                |
+| Vaultwarden  | Passwort-Manager (Bitwarden-kompatibel)           | AGPL-3.0           |
+| n8n          | Workflow-Automatisierung ohne Code                | Sustainable Use    |
+| Ollama       | Lokale KI-Modelle als API                         | MIT                |
+| Open WebUI   | Chat-Oberfläche für lokale KI-Modelle             | BSD-3-Clause       |
+| Forgejo      | Git-Hosting: Repositories, Issues, Pull Requests  | GPL-3.0-or-later   |
+
+### Forgejo: Erstanlage des Administrators
+
+Forgejo läuft als begründete `public`-Ausnahme (Git-Clients können den
+Portal-Login nicht durchlaufen) und authentifiziert selbst; die
+Selbstregistrierung ist per Default gesperrt. Den ersten Administrator
+legt man nach der Installation einmalig auf dem Server an:
+
+```sh
+sudo docker exec -u git oaap-app-forgejo \
+  forgejo admin user create --admin \
+  --username <name> --password '<passwort>' --email <mail>
+```
+
+Weitere Benutzer (z. B. der Plattform-Service-User `oaap-platform` mit
+Lesezugriff für Deploys) folgen danach über die Forgejo-Oberfläche.
+Git-Zugriff läuft über HTTPS (SSH ist deaktiviert — das Gateway routet
+nur HTTP); die Adresse für Clone-URLs setzt der Config-Schlüssel
+`FORGEJO__server__ROOT_URL`.
 
 ## Status
 

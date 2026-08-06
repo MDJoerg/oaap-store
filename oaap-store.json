@@ -80,6 +80,19 @@
       },
       "license": "BSD-3-Clause",
       "homepage": "https://openwebui.com"
+    },
+    {
+      "id": "forgejo",
+      "name": "Forgejo",
+      "description": "Git-Hosting auf der eigenen Plattform: Repositories, Issues, Pull Requests (Community-Fork von Gitea)",
+      "type": "wrapped",
+      "version": "11.0.0",
+      "package": {
+        "git": "https://github.com/MDJoerg/oaap-store",
+        "path": "apps/forgejo"
+      },
+      "license": "GPL-3.0-or-later",
+      "homepage": "https://forgejo.org"
     }
   ]
 }

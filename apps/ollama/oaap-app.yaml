@@ -1,10 +1,14 @@
-oaap_manifest: "0.1"
+oaap_manifest: "0.2"
 
 app:
   id: ollama
   name: Ollama
-  version: 0.9.0
+  version: 0.9.1
   type: wrapped
+  # Ollama wird von anderer Software bedient (z. B. Open WebUI), nicht
+  # von einem Menschen — die Kachel im Launchpad führte auf eine reine
+  # Schnittstelle. Runtime-Spec 2.10; erstes Manifest im Format 0.2.
+  class: service
   description: "Lokale KI-Modelle als API (llama, mistral, qwen, …); braucht je nach Modell mehrere GB RAM"
 
 services:

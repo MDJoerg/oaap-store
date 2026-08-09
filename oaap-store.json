@@ -1,98 +1,189 @@
 {
-  "store": "0.1",
+  "store": "0.2",
+  "id": "oaap.community",
   "name": "OAAP Community-Liste (inoffiziell)",
-  "description": "Erste kuratierte App-Liste für den OAAP-Store-Durchstich. Inhalte ohne Gewähr, Pinning der Image-Versionen folgt.",
+  "description": "Kuratierte Liste fremder Anwendungen, für OAAP verpackt. Die Software stammt nicht von uns — die Verpackung schon. Inhalte ohne Gewähr; Pinning der Image-Versionen folgt.",
+  "publisher": "MDJoerg",
   "apps": [
     {
       "id": "uptime-kuma",
       "name": "Uptime Kuma",
-      "description": "Überwachung von Diensten und Webseiten mit Benachrichtigungen",
       "type": "wrapped",
       "version": "1.23.0",
+      "released": "2026-08-04",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/uptime-kuma"
       },
+      "roles": ["keyuser", "admin"],
+      "categories": ["monitoring", "infrastructure"],
+      "app_class": "frontend",
+      "audience": ["operator"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["uptime", "erreichbarkeit", "benachrichtigung", "statusseite"],
+      "summary": "Überwacht Dienste und Webseiten und meldet, wenn etwas ausfällt.",
+      "description": "Prüft in einstellbaren Abständen, ob Webseiten, Dienste und Ports antworten, und benachrichtigt über E-Mail, Matrix, Telegram und viele weitere Wege. Wird bei uns selbst für die Flottenüberwachung eingesetzt.",
       "license": "MIT",
-      "homepage": "https://github.com/louislam/uptime-kuma"
+      "links": [
+        { "rel": "homepage", "url": "https://github.com/louislam/uptime-kuma" },
+        { "rel": "docs", "url": "https://github.com/louislam/uptime-kuma/wiki" },
+        { "rel": "source", "url": "https://github.com/louislam/uptime-kuma" }
+      ]
     },
     {
       "id": "stirling-pdf",
       "name": "Stirling PDF",
-      "description": "PDF-Werkzeuge im Browser: zusammenfügen, teilen, umwandeln, komprimieren",
       "type": "wrapped",
       "version": "0.36.1",
+      "released": "2026-08-06",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/stirling-pdf"
       },
+      "roles": ["user", "keyuser", "admin"],
+      "categories": ["documents", "productivity"],
+      "app_class": "frontend",
+      "audience": ["everyone"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["pdf", "zusammenfügen", "teilen", "umwandeln", "ocr"],
+      "summary": "PDF-Werkzeuge im Browser: zusammenfügen, teilen, umwandeln, komprimieren.",
+      "description": "Ein umfangreicher Werkzeugkasten für PDF-Dateien, der ohne Cloud auskommt — die Dateien verlassen die eigene Plattform nicht. Genau der Fall, für den Local First gedacht ist.",
       "license": "MIT",
-      "homepage": "https://www.stirlingpdf.com"
+      "links": [
+        { "rel": "homepage", "url": "https://www.stirlingpdf.com" },
+        { "rel": "source", "url": "https://github.com/Stirling-Tools/Stirling-PDF" }
+      ]
     },
     {
       "id": "vaultwarden",
       "name": "Vaultwarden",
-      "description": "Passwort-Manager für den Betrieb (Bitwarden-kompatibel)",
       "type": "wrapped",
       "version": "1.32.0",
+      "released": "2026-08-04",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/vaultwarden"
       },
+      "roles": ["user", "keyuser", "admin"],
+      "categories": ["security", "productivity"],
+      "app_class": "frontend",
+      "audience": ["everyone"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["passwörter", "bitwarden", "tresor", "team"],
+      "summary": "Passwort-Tresor für den Betrieb, kompatibel zu den Bitwarden-Apps.",
+      "description": "Verwaltet Zugangsdaten für ein Team auf der eigenen Plattform; die offiziellen Bitwarden-Clients für Browser und Handy funktionieren damit. Ehrlicher Hinweis zur heutigen Verpackung: Die Browser-Erweiterungen bestehen auf HTTPS, im reinen LAN-Betrieb über HTTP funktioniert daher nur die Weboberfläche — bis RFC-0005 (LAN-TLS) umgesetzt ist.",
       "license": "AGPL-3.0",
-      "homepage": "https://github.com/dani-garcia/vaultwarden"
+      "links": [
+        { "rel": "homepage", "url": "https://github.com/dani-garcia/vaultwarden" },
+        { "rel": "docs", "url": "https://github.com/dani-garcia/vaultwarden/wiki" }
+      ]
     },
     {
       "id": "n8n",
       "name": "n8n",
-      "description": "Workflow-Automatisierung: Dienste verbinden, Abläufe bauen — ohne Code",
       "type": "wrapped",
       "version": "1.100.0",
+      "released": "2026-08-06",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/n8n"
       },
+      "roles": ["keyuser", "admin"],
+      "categories": ["automation", "productivity"],
+      "app_class": "frontend",
+      "audience": ["operator", "developer"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["workflow", "automatisierung", "schnittstellen", "low-code"],
+      "summary": "Abläufe zwischen Diensten bauen und automatisch laufen lassen.",
+      "description": "Verbindet Anwendungen und Schnittstellen zu Abläufen, die auf Ereignisse oder Zeitpläne reagieren — überwiegend zusammengeklickt, bei Bedarf mit eigenem Code. Hinweis zur Lizenz: quelloffen, aber nicht OSI-konform; kommerzielles Anbieten als Dienst ist eingeschränkt.",
       "license": "Sustainable Use License",
-      "homepage": "https://n8n.io"
+      "links": [
+        { "rel": "homepage", "url": "https://n8n.io" },
+        { "rel": "docs", "url": "https://docs.n8n.io" },
+        { "rel": "license", "url": "https://docs.n8n.io/sustainable-use-license/" }
+      ]
     },
     {
       "id": "ollama",
       "name": "Ollama",
-      "description": "Lokale KI-Modelle als API (llama, mistral, qwen, …); braucht je nach Modell mehrere GB RAM",
       "type": "wrapped",
       "version": "0.9.0",
+      "released": "2026-08-06",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/ollama"
       },
+      "roles": ["keyuser", "admin"],
+      "categories": ["ai", "infrastructure"],
+      "app_class": "service",
+      "audience": ["operator", "developer"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["ki", "sprachmodell", "llm", "lokal", "api"],
+      "summary": "Lokale Sprachmodelle als Schnittstelle für andere Anwendungen.",
+      "description": "Lädt und betreibt Sprachmodelle (llama, mistral, qwen und weitere) auf der eigenen Maschine und stellt sie als Schnittstelle bereit. Bedient wird es von anderen Anwendungen — etwa Open WebUI. Bedarf: je nach Modell mehrere Gigabyte Arbeitsspeicher, ohne Grafikkarte entsprechend langsam.",
       "license": "MIT",
-      "homepage": "https://ollama.com"
+      "links": [
+        { "rel": "homepage", "url": "https://ollama.com" },
+        { "rel": "docs", "url": "https://github.com/ollama/ollama/blob/main/docs/api.md" },
+        { "rel": "source", "url": "https://github.com/ollama/ollama" }
+      ]
     },
     {
       "id": "open-webui",
       "name": "Open WebUI",
-      "description": "Chat-Oberfläche für lokale KI-Modelle (Ollama) und API-Anbieter",
       "type": "wrapped",
       "version": "0.6.0",
+      "released": "2026-08-06",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/open-webui"
       },
+      "roles": ["user", "keyuser", "admin"],
+      "categories": ["ai", "productivity"],
+      "app_class": "frontend",
+      "audience": ["everyone"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["ki", "chat", "sprachmodell", "oberfläche"],
+      "summary": "Chat-Oberfläche für lokale Sprachmodelle und externe Anbieter.",
+      "description": "Die Bedienoberfläche zu den Modellen: Unterhaltungen, Dokumente als Wissensquelle, mehrere Modelle nebeneinander. Braucht eine Modellquelle — in unserer Verpackung ist Ollama auf demselben Knoten voreingestellt.",
       "license": "BSD-3-Clause",
-      "homepage": "https://openwebui.com"
+      "links": [
+        { "rel": "homepage", "url": "https://openwebui.com" },
+        { "rel": "docs", "url": "https://docs.openwebui.com" },
+        { "rel": "source", "url": "https://github.com/open-webui/open-webui" }
+      ]
     },
     {
       "id": "forgejo",
       "name": "Forgejo",
-      "description": "Git-Hosting auf der eigenen Plattform: Repositories, Issues, Pull Requests (Community-Fork von Gitea)",
       "type": "wrapped",
       "version": "11.0.0",
+      "released": "2026-08-06",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/forgejo"
       },
+      "roles": ["public"],
+      "categories": ["development"],
+      "app_class": "frontend",
+      "audience": ["developer", "operator"],
+      "maturity": "stable",
+      "status": "active",
+      "tags": ["git", "repositories", "issues", "gitea", "code"],
+      "summary": "Git-Hosting auf der eigenen Plattform: Repositories, Issues, Pull Requests.",
+      "description": "Ein vollständiger Git-Server mit Weboberfläche (Community-Fork von Gitea). Registrierung und anonymes Lesen sind in unserer Verpackung abgeschaltet, SSH ebenfalls — geklont wird über HTTPS durch das Gateway. Besonderheit: Die Route ist bewusst öffentlich, weil Git-Clients den Portal-Login nicht durchlaufen können; Forgejo meldet Benutzer selbst an.",
       "license": "GPL-3.0-or-later",
-      "homepage": "https://forgejo.org"
+      "links": [
+        { "rel": "homepage", "url": "https://forgejo.org" },
+        { "rel": "docs", "url": "https://forgejo.org/docs/latest/" },
+        { "rel": "source", "url": "https://codeberg.org/forgejo/forgejo" }
+      ]
     }
   ]
 }

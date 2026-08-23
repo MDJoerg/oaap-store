@@ -9,8 +9,8 @@
       "id": "uptime-kuma",
       "name": "Uptime Kuma",
       "type": "wrapped",
-      "version": "1.23.0",
-      "released": "2026-08-04",
+      "version": "2.5.3",
+      "released": "2026-08-23",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/uptime-kuma"

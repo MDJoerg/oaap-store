@@ -163,8 +163,8 @@
       "id": "forgejo",
       "name": "Forgejo",
       "type": "wrapped",
-      "version": "11.0.0",
-      "released": "2026-08-06",
+      "version": "15.0.11",
+      "released": "2026-11-18",
       "package": {
         "git": "https://github.com/MDJoerg/oaap-store",
         "path": "apps/forgejo"
@@ -175,9 +175,9 @@
       "audience": ["developer", "operator"],
       "maturity": "stable",
       "status": "active",
-      "tags": ["git", "repositories", "issues", "gitea", "code"],
+      "tags": ["git", "repositories", "issues", "gitea", "code", "sso", "oidc"],
       "summary": "Git-Hosting auf der eigenen Plattform: Repositories, Issues, Pull Requests.",
-      "description": "Ein vollständiger Git-Server mit Weboberfläche (Community-Fork von Gitea). Registrierung und anonymes Lesen sind in unserer Verpackung abgeschaltet, SSH ebenfalls — geklont wird über HTTPS durch das Gateway. Besonderheit: Die Route ist bewusst öffentlich, weil Git-Clients den Portal-Login nicht durchlaufen können; Forgejo meldet Benutzer selbst an.",
+      "description": "Ein vollständiger Git-Server mit Weboberfläche (Community-Fork von Gitea), Forgejo 15 (LTS). Registrierung und anonymes Lesen sind in unserer Verpackung abgeschaltet, SSH ebenfalls — geklont wird über HTTPS durch das Gateway. Besonderheit: Die Route ist bewusst öffentlich, weil Git-Clients den Portal-Login nicht durchlaufen können; Forgejo meldet Benutzer selbst an — mit eigenen Konten oder, wenn der Betreiber ihm einen Client gibt (oaap idp app, OAAP ab 0.1.301), über den Anmeldedienst des Mandanten.",
       "license": "GPL-3.0-or-later",
       "links": [
         { "rel": "homepage", "url": "https://forgejo.org" },

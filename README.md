@@ -48,16 +48,37 @@ Selbstregistrierung ist per Default gesperrt. Den ersten Administrator
 legt man nach der Installation einmalig auf dem Server an:
 
 ```sh
-sudo docker exec -u git oaap-app-forgejo \
-  forgejo admin user create --admin \
-  --username <name> --password '<passwort>' --email <mail>
+sudo docker exec -u git oaap-app-<instanz>   forgejo admin user create --admin   --username <name> --password '<passwort>' --email <mail>
 ```
 
-Weitere Benutzer (z. B. der Plattform-Service-User `oaap-platform` mit
-Lesezugriff für Deploys) folgen danach über die Forgejo-Oberfläche.
 Git-Zugriff läuft über HTTPS (SSH ist deaktiviert — das Gateway routet
-nur HTTP); die Adresse für Clone-URLs setzt der Config-Schlüssel
-`FORGEJO__server__ROOT_URL`.
+nur HTTP). Die Adresse für Clone-URLs ist der erste Name der Instanz;
+`FORGEJO__server__ROOT_URL` setzt eine andere.
+
+### Forgejo: Anmeldung über den Anmeldedienst des Mandanten (ab 15.0.11)
+
+Hat der Mandant einen Anmeldedienst, den OAAP angelegt hat (`oaap idp
+provision`), gibt der Betreiber Forgejo einen eigenen Client darin
+(RFC-0091 Stufe 3, OAAP ab 0.1.301):
+
+```sh
+sudo oaap idp app <connector> --instance <instanz> --dry-run   # erst ansehen
+sudo oaap idp app <connector> --instance <instanz>
+```
+
+Danach steht auf der Anmeldeseite von Forgejo „Anmelden mit oaap“. Wer
+sich darüber zum ersten Mal anmeldet, bekommt ein Forgejo-Konto mit
+seinem Benutzernamen aus dem Realm; wer in den Realm darf, entscheidet
+der Realm (auch über fremde Anmeldedienste davor). Für Git über HTTPS
+legt jede Person in Forgejo ein Zugangstoken an (Einstellungen →
+Anwendungen). Optional macht Forgejo aus Realm-Gruppen eigene Rechte:
+`OAAP_FORGEJO_ADMIN_GROUP` (Forgejo-Administratoren) und
+`OAAP_FORGEJO_RESTRICTED_GROUP` (eingeschränkte Benutzer), je mit vollem
+Pfad wie `/partner`. Das sind Rechte in Forgejo, keine Plattformrollen.
+
+Abschalten: `sudo oaap idp app <connector> --instance <instanz> --off`.
+Der Client im Realm wird deaktiviert, nicht gelöscht; das passiert auch
+beim Entfernen der Instanz.
 
 ## Status
 
